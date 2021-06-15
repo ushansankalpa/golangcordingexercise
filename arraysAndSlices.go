@@ -43,6 +43,19 @@ func main() {
 
 	//modifying slice2
 	modifyingslice2()
+
+	//length and capacity of slices
+	lengthandcap()
+	lengthandcap2()
+
+	//appending to slice
+	appendingtoslice()
+
+	//binding two array
+	bindingArrays()
+
+	//multidiemensional slices
+	multidiemSlice()
 }
 
 func changeLocal(num [5]int) {
@@ -137,4 +150,51 @@ func modifyingslice2() {
 	fmt.Println("array after modification to slice nums1", numa)
 	nums2[1] = 101
 	fmt.Println("array after modification to slice nums2", numa)
+}
+
+//length and capacity of slices
+func lengthandcap() {
+	fruitarray := [...]string{"apple", "orange", "grape", "mango", "water melon", "pine apple", "chikoo"}
+	fruitslice := fruitarray[1:3]
+	//length of fruitslice is 2 and capacity is 6
+	fmt.Printf("length of slice %d capacity %d", len(fruitslice), cap(fruitslice))
+}
+
+func lengthandcap2() {
+	fruitarray := [...]string{"apple", "orange", "grape", "mango", "water melon", "pine apple", "chikoo"}
+	fruitslice := fruitarray[1:3]
+	fmt.Printf("length of slice %d capacity %d\n", len(fruitslice), cap(fruitslice))
+	fruitslice = fruitslice[:cap(fruitslice)]
+	fmt.Println("After re-slicing length is", len(fruitslice), "and capacity is", cap(fruitslice))
+}
+
+//appending to slice
+func appendingtoslice() {
+	cars := []string{"Ferrari", "Honda", "Ford"}
+	fmt.Println("cars:", cars, "has old length", len(cars), "and capacity", cap(cars))
+	cars = append(cars, "Toyota")
+	fmt.Println("cars:", cars, "has new length", len(cars), "and capacity", cap(cars))
+}
+
+//binding two arrays
+func bindingArrays() {
+	veggies := []string{"potatoes", "tomatoes", "brinjal"}
+	fruits := []string{"oranges", "apples"}
+	food := append(veggies, fruits...)
+	fmt.Println("food:", food)
+}
+
+//multidiemensional slices
+func multidiemSlice() {
+	pls := [][]string{
+		{"C", "C++"},
+		{"JavaScript"},
+		{"Go", "Rust"},
+	}
+	for _, v1 := range pls {
+		for _, v2 := range v1 {
+			fmt.Printf("%s ", v2)
+		}
+		fmt.Printf("\n")
+	}
 }
