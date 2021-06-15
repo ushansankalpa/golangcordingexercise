@@ -5,11 +5,11 @@ import "fmt"
 func main() {
 
 	secondLoop()
-	fmt.Println("\n")
+	fmt.Println()
 	thirdLoop()
-	fmt.Println("\n")
+	fmt.Println()
 	starpattern()
-	fmt.Println("\n")
+	fmt.Println()
 	lables()
 	fmt.Println()
 	lable2()
